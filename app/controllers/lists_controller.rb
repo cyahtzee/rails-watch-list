@@ -1,4 +1,7 @@
 class ListsController < ApplicationController
+  def home
+  end
+
   def index
     @lists = List.all
   end
@@ -17,9 +20,10 @@ class ListsController < ApplicationController
   end
 
   def show
-    @bookmarks = Bookmark.all
     @list = List.find(params[:id])
-    # @movies = @bookmarks.where(list_id: @list.id)
+  end
+
+  def delete
   end
 
   private

@@ -1,4 +1,22 @@
-.camovie {
+.card-category {
+  margin-top: 16px;
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #923B20;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.card-movie {
+  margin-top: 16px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -31,17 +49,38 @@
   position: relative;
 }
 
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
+.card-remove-link {
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 30px;
+  width: 30px;
+  opacity: 0.8;
+  // transform: rotate(45deg);
+  font-weight: lighter;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+.card-add-link {
+  color: #923B20;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  opacity: 0.8;
+  // transform: rotate(45deg);
+  font-weight: lighter;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+  }
 }

@@ -1,14 +1,21 @@
 <div class="container">
-<% @list.movies.each do |movie| %>
-  <div class="card-movie">
-    <%= image_tag movie.poster_url, alt: movie.title %>
-    <div class="card-movie-infos">
-      <div>
-        <h2><%= movie.title %></h2>
-        <p><%= movie.overview %></p>
-      </div>
-      <h2 class="card-movie-pricing"><%= movie.rating %></h2>
+  <div class="cards">
+    <div class="card-movie">
+      <%= link_to new_list_bookmark_path(@list) do %>
+        <i class="far fa-bookmark"> New movie</i>
+      <% end %>
     </div>
+    <% @list.movies.each do |movie| %>
+      <div class="card-movie">
+        <%= image_tag movie.poster_url, alt: movie.title %>
+        <div class="card-movie-infos">
+          <div>
+            <h2><%= movie.title %></h2>
+            <p><%= movie.overview %></p>
+          </div>
+          <h2 class="card-movie-rating"><%= movie.rating %></h2>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
 </div>
