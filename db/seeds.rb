@@ -17,7 +17,7 @@ response = JSON.parse(URI.open(url).read)
 
 response['results'].each do |movie_hash|
   Movie.create!(
-    title: movie_hash['original_title'],
+    title: movie_hash['title'],
     overview: movie_hash['overview'],
     poster_url: "https://image.tmdb.org/t/p/original#{movie_hash['poster_path']}",
     rating: movie_hash['vote_average']

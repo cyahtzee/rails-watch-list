@@ -1,2 +1,14 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="container">
+<% @list.movies.each do |movie| %>
+  <div class="card-movie">
+    <%= image_tag movie.poster_url, alt: movie.title %>
+    <div class="card-movie-infos">
+      <div>
+        <h2><%= movie.title %></h2>
+        <p><%= movie.overview %></p>
+      </div>
+      <h2 class="card-movie-pricing"><%= movie.rating %></h2>
+    </div>
+  </div>
+<% end %>
+</div>
