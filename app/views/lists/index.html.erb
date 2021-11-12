@@ -1,14 +1,15 @@
-<%= render 'components/banner' %>
+
 <div class="container">
   <div class="cards">
     <% @lists.each do |list| %>
-    <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key, width: 400, height: 300, crop: :fill) : image_path('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHeyxxJY-jAMXLQDdjeXAYYRLTiIi8UezXTA&usqp=CAU') %>)">
-      <%= link_to new_list_bookmark_path(list), class: "card-add-link" do %>
-      <i class="far fa-bookmark"></i>
-      <% end %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key, width: 400, height: 300, crop: :fill) : image_path('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHeyxxJY-jAMXLQDdjeXAYYRLTiIi8UezXTA&usqp=CAU') %>)">
+
       <%= link_to list_path(list), class: 'card-remove-link' do %>
       <%= list.name %>
       <% end %>
+      <%= link_to list_path(list), class: 'card-add-link', method: :delete, data: { confirm: "All movies bye-bye?" } do %>
+        <i class="fas fa-skull"></i>
+        <% end %>
     </div>
     <% end %>
   </div>

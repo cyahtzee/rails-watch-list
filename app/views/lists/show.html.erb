@@ -1,19 +1,22 @@
 <div class="container">
+<div style="position: relative">
+  <%= link_to new_list_bookmark_path(@list), class: "card-add-link" do %>
+    <i class="far fa-bookmark"> Add</i>
+  <% end %>
+</div>
   <div class="cards">
-    <div class="card-movie">
-      <%= link_to new_list_bookmark_path(@list) do %>
-        <i class="far fa-bookmark"> New movie</i>
-      <% end %>
-    </div>
-    <% @list.movies.each do |movie| %>
+    <% @list.bookmarks.each do |bookmark| %>
       <div class="card-movie">
-        <%= image_tag movie.poster_url, alt: movie.title %>
+        <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title %>
+        <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "NO more?" } do %>
+        <i class="fas fa-skull"></i>
+        <% end %>
         <div class="card-movie-infos">
           <div>
-            <h2><%= movie.title %></h2>
-            <p><%= movie.overview %></p>
+            <h2><%= bookmark.movie.title %></h2>
+            <p><%= bookmark.movie.overview %></p>
           </div>
-          <h2 class="card-movie-rating"><%= movie.rating %></h2>
+          <h2 class="card-movie-rating"><%= bookmark.movie.rating %></h2>
         </div>
       </div>
     <% end %>
