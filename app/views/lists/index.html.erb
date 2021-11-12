@@ -2,14 +2,14 @@
 <div class="container">
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://assets1.ignimgs.com/2021/02/05/faceoff-monsters-blogroll-1612566701979_160w.jpg?width=1280)">
+    <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key, width: 400, height: 300, crop: :fill) : image_path('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHeyxxJY-jAMXLQDdjeXAYYRLTiIi8UezXTA&usqp=CAU') %>)">
       <%= link_to new_list_bookmark_path(list), class: "card-add-link" do %>
       <i class="far fa-bookmark"></i>
       <% end %>
       <%= link_to list_path(list), class: 'card-remove-link' do %>
       <%= list.name %>
       <% end %>
-      </div>
+    </div>
     <% end %>
   </div>
 </div>
